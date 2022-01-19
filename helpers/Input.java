@@ -1,5 +1,7 @@
 package com.helpers;
 
+import com.library.ListNode;
+
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
@@ -37,7 +39,7 @@ public class Input {
         try {
             Clipboard c = Toolkit.getDefaultToolkit().getSystemClipboard();
             String arr = c.getData(DataFlavor.stringFlavor).toString().trim();
-            arr = arr.substring(1, arr.length());
+            arr = arr.substring(1, arr.length() - 1);
             String[] nums = arr.split(",");
             java.util.List<Integer> list = new ArrayList<>();
             for (String num : nums) {
@@ -84,5 +86,15 @@ public class Input {
             System.out.println("Looks like you haven't copied a two dimensional array to the clipboard");
         }
         return new int[][] {};
+    }
+    public ListNode inputSinglyLinkedList() {
+        ListNode head = new ListNode(0);
+        java.util.List<Integer> list = inputIntegerArraylist();
+        ListNode curr = head;
+        for (Integer num : list) {
+            curr.next = new ListNode(num);
+            curr = curr.next;
+        }
+        return head.next;
     }
 }
