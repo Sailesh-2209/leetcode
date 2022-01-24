@@ -2,7 +2,7 @@ package com.problems;
 
 import com.helpers.Input;
 
-public class lc605 {
+public class lc0605 {
     public static void main(String[] args) {
         Input input = new Input();
         int[] flowerbed = input.inputIntegerArray();
